@@ -67,17 +67,26 @@
 
                     </ul>
 
+                    {% if not request.user.is_authenticated %}
                     <!-- AUTH BUTTONS -->
                     <div class="d-flex gap-2 auth-buttons">
-                        <button class="btn login-btn" data-bs-toggle="modal" data-bs-target="#loginModal">
+                        <a href="/login" class="btn login-btn"  data-bs-target="#loginModal">
                             Login
-                        </button>
+                        </a>
 
-                        <button class="btn signup-btn" data-bs-toggle="modal" data-bs-target="#signupModal">
+                        <a href="/signup" class="btn signup-btn"  data-bs-target="#signupModal">
                             Sign Up
-                        </button>
+                        </a>
                     </div>
-
+                    {% endif %}
+                    {% if request.user.is_authenticated %}
+                    <!-- AUTH BUTTONS -->
+                    <div class="d-flex gap-2 auth-buttons">
+                        <a href="/logout" class="btn signup-btn"  data-bs-target="#signupModal">
+                            Logout
+                        </a>
+                    </div>
+                    {% endif %}
                 </div>
             </div>
         </nav>
